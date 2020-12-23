@@ -31,10 +31,11 @@ Converts file of numbers in an image.
 Converts 4 files in 4 images at the same time, because it assigned random colors to clusters id. The id is assigned in order of the size of every segment. The bigger the segment is, it has less id. The biggest segment in every photo has the same id, 0. Segments in the same order will be the same color and therefore can be noticed how the clusters changed with different thresholds.
 
 # Results
-![](images_readme/img0.png ){:width = 200px}
-![](images_readme/img1.png ){:width = 200px}
-![](images_readme/img2.png ){:width = 200px}
-![](images_readme/img3.png ){:width = 200px}
-![](images_readme/img4.png ){:width = 200px}
-![](images_readme/img5.png ){:width = 200px}
-![](images_readme/img6.png ){:width = 170px}
+![](images_readme/img0.png )
+![](images_readme/img1.png )
+![](images_readme/img2.png )
+![](images_readme/img3.png )
+![](images_readme/img4.png )
+![](images_readme/img5.png )
+![](images_readme/img6.png )
+![](images_readme/img7.png )
