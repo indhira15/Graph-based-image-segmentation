@@ -2,7 +2,7 @@
 #### Python (cv2, numpy and matplotlib.pyplot)
 
 #### In terminal write: make
-#### Create four images with different thresholds. (See in main.cpp)
+#### Creates four images with different thresholds. (See in main.cpp)
 
 ## Folders
 ### images_readme
