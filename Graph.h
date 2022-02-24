@@ -208,8 +208,8 @@ public:
 		}
 		return min(maxA + (k/carA), maxB + (k/carB));
 	}
-	void Segmentar(double k){
-		cout << "INIT: " << clusteres.size() << endl;
+	pair<int, int> Segmentar(double k){
+		int initial_clusteres = clusteres.size();
 		Arista *a;
 		long aristas_n = aristas.size();
 		double MInt_v;
@@ -223,7 +223,8 @@ public:
 				}
 			}
 		}
-		cout << "FINAL: "<< clusteres.size() << endl;
+		int final_clusteres = clusteres.size();
+		return {initial_clusteres, final_clusteres};
 	}
 
 	void Make_image(string s){
