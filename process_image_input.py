@@ -1,40 +1,43 @@
 import cv2
 import numpy
+import os
+import shutil
 import matplotlib.pyplot as plt
 
-n_img = "images_input/input.png"
 
-print("	>> Enter name of photo (has to be inside images_input file): ")
-print("	>> If empty, default will be input.png")
-photo_name = input()
-photo_name.strip()
-if photo_name != "":
-	n_img = "images_input/" + photo_name
+# Pre processing
+## collect all the photo names
+path_in = "images_input"
+path_out = "images_output"
+path_temporal = "images_temporal"
+photo_list = os.listdir(path_in)
 
-print("Process ", n_img)
+if os.path.isdir(path_out) == True:
+	shutil.rmtree(path_out)
 
-img = cv2.imread(n_img);
-img = cv2.cvtColor(img, cv2.BORDER_DEFAULT)
-img = cv2.GaussianBlur(img, (5,5),0.8)
-cv2.imwrite('images_input/gray_input.png', img)
+if os.path.isdir(path_temporal) == True:
+	shutil.rmtree(path_temporal)
 
-altura  = img.shape[0]
-ancho = img.shape[1]
-img = cv2.imread("images_input/gray_input.png")
+os.mkdir(path_out)
+os.mkdir(path_temporal)
 
+for p in photo_list:
+	n_img = path_in + "/" + p
+	print("Processing ", n_img)
 
-altura  = img.shape[0]
-ancho = img.shape[1]
+	img = cv2.imread(n_img);
+	img = cv2.cvtColor(img, cv2.BORDER_DEFAULT)
+	img = cv2.GaussianBlur(img, (5,5),0.8)
 
-f = open("images_files/test.in", 'w')
-f.write(str(altura))
-f.write(" ")
-f.write(str(ancho) + "\n")
+	height  = img.shape[0]
+	width = img.shape[1]
+	f = open(path_temporal + "/" + p + ".in", "w")
+	f.write(str(height) + " " + str(width) + "\n")
 
-for i in range(altura):
-  for j in range(ancho):
-  	f.write(str(img[i][j][0]));
-  	f.write(" ")
-  f.write('\n')
+	for i in range(height):
+	  for j in range(width):
+	  	f.write(str(img[i][j][0]));
+	  	f.write(" ")
+	  f.write('\n')
 
-f.close()
+	f.close()
