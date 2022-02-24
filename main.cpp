@@ -10,30 +10,35 @@
 
 using namespace std;
 
+void segment_all(int k){
+	fstream file;
+	string line;
+
+	file.open("images_list.txt");
+	while(file >> line){
+		Grafo gf("images_temporal/" + line + ".in");
+		gf.Segmentar(k);
+		gf.Make_image("images_temporal/" + line +"_" + to_string(k) + ".out");
+	}
+}
+
+void segment_all(vector<int> ks){
+	fstream file;
+	string line;
+
+	file.open("images_list.txt");
+	while(file >> line){
+		for(auto &i:ks){
+			Grafo gf("images_temporal/" + line + ".in");
+			gf.Segmentar(i);
+			gf.Make_image("images_temporal/" + line + "_" + to_string(i) + ".out");
+		}
+	}
+}
 
 int main(){
 
-	// crea varias segmentaciones con distinto numero de k
-	Grafo gf("images_files/test.in", 1);
-	gf.Segmentar(500);
-	gf.Make_image("seg_img_8_1.out");
-
-	Grafo gf2("images_files/test.in", 1);
-	gf2.Segmentar(800);
-	gf2.Make_image("seg_img_8_2.out");
-
-	Grafo gf3("images_files/test.in", 1);
-	gf3.Segmentar(1100);
-	gf3.Make_image("seg_img_8_3.out");
-
-	Grafo gf4("images_files/test.in", 1);
-	gf4.Segmentar(2000);
-	gf4.Make_image("seg_img_8_4.out");
-
-
-/*	gf.read("images_files/test1.in");
-	gf.make_two_images();
-*/
+	segment_all(1100);
 
 	return 0;
 }
