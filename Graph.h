@@ -137,7 +137,7 @@ class Grafo{
 	int altura;
 	list<Cluster*> clusteres;
 public:
-	Grafo(string filename, bool malla8 = false){
+	Grafo(string filename, bool malla8 = true){
 		ifstream ifile(filename);
 		string a, b, cs;
 		int ia, ib, ic;
@@ -226,8 +226,7 @@ public:
 		cout << "FINAL: "<< clusteres.size() << endl;
 	}
 
-	void Make_image(string s = "seg_img.out" ){
-		s = "images_files/" + s;
+	void Make_image(string s){
 		int newImg[altura][ancho];
 		long i = 0;
 		clusteres.sort(comparacion_cluster_pointers);
