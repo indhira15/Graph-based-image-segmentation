@@ -1,6 +1,7 @@
 #### C++
 #### Python (cv2, numpy, shutil, os and matplotlib.pyplot)
 
+Implementation of the paper Efficient graph based segmentation 
 ![](images_readme/Graph_based_segmentation_ENG_1.jpg)
 
 
@@ -26,3 +27,6 @@ Converts all input images in a grayscale image and saves it in a temporal file
 
 #### make_image.py
 Converts the segmented images in images.
+
+
+More detail in Documentation/Graph_based_segmentation_ENG.pdf
